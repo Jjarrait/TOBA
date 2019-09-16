@@ -9,10 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>TOBA New Customer</title>
-        <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+                       
     </head>
     <body>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <c:import url="/includes/header.html" />
         <h1>New Customer Registration</h1>
         <p>Please fill in the information below to register an account.</p>
         <p><b>${message}</b></p>
@@ -46,6 +47,7 @@
             
             <label>&nbsp;</label>
             <input type="submit" value="Submit" id="submit">
-        </form>        
+        </form>
+            <c:import url="/includes/footer.jsp" />
     </body>
 </html>

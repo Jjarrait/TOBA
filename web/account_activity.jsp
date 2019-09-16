@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Error_java
-    Created on : Aug 25, 2019, 3:03:32 PM
-    Author     : Jennifer Jarrait
+    Document   : account_activity
+    Created on : Sep 15, 2019, 8:01:17 PM
+    Author     : jnjrr
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,15 +12,16 @@
         
     </head>
     <body>
+        <h1>Account Activity</h1>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:import url="/includes/header.html" />
-        <h1>Java Error</h1>
-        <p>Sorry, Java has thrown an exception.</p>
-        <p>To continue, click the Back button.</p>
-        
-        <h2>Details</h2>
-        <p>Type: {pageContext.exception["class"]}</p>
-        <p>Message: {pageContext.exception.message}</p>
+        <c:if test="${sessionScope.user == null}">
+              <p>Not Logged In</p>
+    </c:if>
+    <c:if test="${sessionScope.user != null}">
+        <p>Welcome ${user.firstName}  
+            ${user.lastName}</p>
+    </c:if>
         <c:import url="/includes/footer.jsp" />
     </body>
 </html>

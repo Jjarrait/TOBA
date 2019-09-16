@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
                           throws ServletException, IOException {
-        String url = "/login.html";
+        String url = "/login.jsp";
         
         //get current action
         String action = request.getParameter("action");
@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
                 
                 
             if ("jsmith@toba.com".equals(username)&&("letmein".equals(password))) {
-               url = "/account_activity.html";
+               url = "/account_activity.jsp";
                
                 LoginDB.insert(login);
                 // set Login object in request object and set URL
@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
                 
             }
             else {
-                url = "/login_failure.html";
+                url = "/login_failure.jsp";
                 
             }
         }
