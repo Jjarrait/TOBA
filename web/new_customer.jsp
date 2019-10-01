@@ -43,7 +43,7 @@
             <input type="text" name="zipcode" value="${user.zipcode}"><br>
             
             <label>Email</label>
-            <input type="email" name="email" value="${user.email}"><br>
+            <input type="text" name="email" value="${user.email}"><br>
             
             <label>&nbsp;</label>
             <input type="submit" value="Submit" id="submit">

@@ -21,6 +21,7 @@
     <c:if test="${sessionScope.user != null}">
         <p>Welcome ${user.firstName}  
             ${user.lastName}</p>
+        
     </c:if>
         <c:import url="/includes/footer.jsp" />
     </body>

@@ -3,11 +3,20 @@
 package toba.business;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Jennifer Jarrait
  */
+@Entity
 public class User implements Serializable {
+    
+    
+    private Long userID;
     private String firstName;
     private String lastName;
     private String phone;
@@ -19,32 +28,17 @@ public class User implements Serializable {
     private String username;
     private String password;
     
-    public User() {
-        firstName = "";
-        lastName = "";
-        phone = "";
-        address = "";
-        city = "";
-        state = "";
-        zipcode = "";
-        email = "";
-        username = "";
-        password = "";
+ 
+
+       
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getUserID() {
+        return userID;
     }
     
-    public User(String firstName, String lastName, String phone, String address,
-                String city, String state, String zipcode, String email,
-                String username, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zipcode = zipcode;
-        this.email = email;
-        this.username = username;
-        this.password = password;
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
     
     public String getFirstName() {

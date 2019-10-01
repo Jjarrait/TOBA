@@ -2,23 +2,23 @@
 
 package toba.data;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-
-import toba.business.User;
-
 /**
  *
  * @author Jennifer Jarrait
  */
 
-public class UserDB {
-    public static void insert(User user) {
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import toba.business.Account;
+
+
+public class AccountDB {
+    public static void insert(Account account) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         trans.begin();        
         try {
-            em.persist(user);
+            em.persist(account);
             trans.commit();
         } catch (Exception e) {
             System.out.println(e);
@@ -28,19 +28,13 @@ public class UserDB {
         }
     }
     
-    public static void update(User user) {
+    public static Account getAccountById(long accountID) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
-        EntityTransaction trans = em.getTransaction();
         try {
-            trans.begin();
-            em.merge(user);
-            trans.commit();
-        } catch (Exception e) {
-            System.out.println(e);
-            trans.rollback();
+            Account account = em.find(Account.class, accountID);
+            return account;
         } finally {
             em.close();
         }
     }
-    
 }

@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/TOBA"/>
+<Context antiJARLocking="true" path="/TOBA">
+try {
+    String dbURL = "jdbc:mysql://localhost:3306/TOBA";
+    String username = "root";
+    String password = "sesame";
+    Connection connection = DriverManager.getConnection(
+    dbURL, username, password);
+    } catch (SQLException e) {
+    for (Throwable t : e)
+    t.printStackTrace();
+    }
+</Context>
